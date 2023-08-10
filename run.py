@@ -11,4 +11,13 @@ class BattleshipGame:
     def create_board(self):
         return [[' ' for _ in range(self.board_size)] for _ in range(self.board_size)]
 
-    
+    def place_ships(self, board):
+        ships = []
+        for _ in range(3):
+            while True:
+                x = random.randint(0, self.board_size - 1)
+                y = random.randint(0, self.board_size - 1)
+                if (x, y) not in ships:
+                    ships.append((x, y))
+                    break
+        return ships

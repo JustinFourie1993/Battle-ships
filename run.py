@@ -1,3 +1,4 @@
+from random import randint
 
 
 class BattleshipGame:
@@ -21,3 +22,8 @@ class BattleshipGame:
                     ships.append((x, y))
                     break
         return ships
+
+    def print_board(self, board):
+        print("  " + " ".join([str(i) for i in range(1, self.board_size + 1)]))
+        for i, row in enumerate(board):
+            print(chr(ord('A') + i) + " " + " ".join(row))

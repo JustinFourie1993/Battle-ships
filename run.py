@@ -27,3 +27,13 @@ class BattleshipGame:
         print("  " + " ".join([str(i) for i in range(1, self.board_size + 1)]))
         for i, row in enumerate(board):
             print(chr(ord('A') + i) + " " + " ".join(row))
+
+    def get_player_guess(self):
+        while True:
+            guess = input("Enter your guess (e.g., A1): ").upper()
+            if len(guess) != 2 or not ('A' <= guess[0] <= chr(ord('A') + self.board_size - 1)) or not ('1' <= guess[1] <= str(self.board_size)):
+                print("Invalid guess. Please try again.")
+                continue
+            y = ord(guess[0]) - ord('A')
+            x = int(guess[1]) - 1
+            return x, y

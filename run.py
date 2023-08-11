@@ -1,4 +1,4 @@
-from random import randint
+import random
 
 
 class BattleshipGame:
@@ -37,3 +37,8 @@ class BattleshipGame:
             y = ord(guess[0]) - ord('A')
             x = int(guess[1]) - 1
             return x, y
+
+    def get_computer_guess(self):
+        x = random.randint(0, self.board_size - 1)
+        y = random.randint(0, self.board_size - 1)
+        return x, y

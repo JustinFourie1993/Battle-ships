@@ -42,3 +42,13 @@ class BattleshipGame:
         x = random.randint(0, self.board_size - 1)
         y = random.randint(0, self.board_size - 1)
         return x, y
+
+    def process_guess(self, board, ships, guess):
+        x, y = guess
+        if (x, y) in ships:
+            print("Hit!")
+            board[y][x] = 'H'
+            ships.remove((x, y))
+        else:
+            print("Miss!")
+            board[y][x] = 'M'

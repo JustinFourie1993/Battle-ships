@@ -52,3 +52,6 @@ class BattleshipGame:
         else:
             print("Miss!")
             board[y][x] = 'M'
+
+    def check_winner(self, ships):
+        return len(ships) == 0

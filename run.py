@@ -55,3 +55,30 @@ class BattleshipGame:
 
     def check_winner(self, ships):
         return len(ships) == 0
+
+    def play(self):
+        print("Let's play Battleship!")
+        while True:
+            print("Your board:")
+            self.print_board(self.player_board)
+            print("Computer's board:")
+            self.print_board(self.computer_board)
+
+            player_guess = self.get_player_guess()
+            self.process_guess(self.computer_board, self.computer_ships, player_guess)
+
+            if self.check_winner(self.computer_ships):
+                print("Congratulations! You sunk all the computer's ships. You win!")
+                break
+
+            computer_guess = self.get_computer_guess()
+            self.process_guess(self.player_board, self.player_ships, computer_guess)
+
+            if self.check_winner(self.player_ships):
+                print("Oh no! The computer sunk all your ships. You lose!")
+                break
+
+# Start the game
+if __name__ == "__main__":
+    game = BattleshipGame(board_size=5)
+    game.play()

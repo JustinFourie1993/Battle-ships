@@ -12,6 +12,8 @@ class BattleshipGame:
         self.computer_board = self.create_board()
         self.computer_ships = self.place_ships(self.computer_board)
         self.player_ships = self.place_ships(self.player_board)
+        self.my_guesses = []
+        self.computer_gusses = []
 
     # create_board taken from CI's Project Portfolio 3 Scope video
     def create_board(self):
@@ -56,14 +58,23 @@ class BattleshipGame:
                 continue
             y = ord(guess[0]) - ord('A')
             x = int(guess[1]) - 1
-            return x, y
+            if (x, y) in self.my_guesses:
+                print("Invalid guess. Please try again.")
+                continue
+            else:
+                self.my_guesses.append((x, y))
+                return x, y
 
     def get_computer_guess(self):
         """Sets a random guess for the computer"""
-
-        x = random.randint(0, self.board_size - 1)
-        y = random.randint(0, self.board_size - 1)
-        return x, y
+        while True:
+            x = random.randint(0, self.board_size - 1)
+            y = random.randint(0, self.board_size - 1)
+            if (x, y) in self.computer_gusses:
+                continue
+            else:
+                self.computer_gusses.append((x, y))
+                return x, y
 
     def process_guess(self, board, ships, guess):
         """

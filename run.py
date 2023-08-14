@@ -12,7 +12,7 @@ class BattleshipGame:
         self.computer_board = self.create_board()
         self.computer_ships = self.place_ships(self.computer_board)
         self.player_ships = self.place_ships(self.player_board)
-    
+ 
     # create_board taken from CI's Project Portfolio 3 Scope video
     def create_board(self):
         """Creates a grid using a for loop"""

@@ -79,7 +79,8 @@ class BattleshipGame:
             ships.remove((x, y))
         else:
             print("Miss!")
-            board[y][x] = 'O'
+            if board[y][x] == " ":
+                board[y][x] = "O"
 
     def check_winner(self, ships):
         return len(ships) == 0

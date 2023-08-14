@@ -46,7 +46,11 @@ class BattleshipGame:
             print(chr(ord('A') + i) + " " + " ".join(row))
 
     def get_player_guess(self):
-        """Takes playes guess with an input and checks if guess is valid"""
+        """
+        Takes players guess with an input and checks if guess is valid
+        Guess must have 2 values, be inside the grid, and u cant make the same
+        guess more than once
+        """
 
         while True:
             guess = input("Enter your guess (e.g., A1): ").upper()
@@ -59,14 +63,17 @@ class BattleshipGame:
             y = ord(guess[0]) - ord('A')
             x = int(guess[1]) - 1
             if (x, y) in self.my_guesses:
-                print("Invalid guess. Please try again.")
+                print("You allredy guessed that. Please try again.")
                 continue
             else:
                 self.my_guesses.append((x, y))
                 return x, y
 
     def get_computer_guess(self):
-        """Sets a random guess for the computer"""
+        """
+        Sets a random guess for the computer
+        cant make same guess more than once
+        """
         while True:
             x = random.randint(0, self.board_size - 1)
             y = random.randint(0, self.board_size - 1)
@@ -81,7 +88,8 @@ class BattleshipGame:
         Checks if guess position is the same as one of
         the stored ship positions
         Prints out weather you have hit or missed and removes stored ship
-        position if guess was correct.
+        position if guess was correct, shows hit ships and missed hits
+        on the board
         """
         x, y = guess
         if (x, y) in ships:
@@ -99,7 +107,9 @@ class BattleshipGame:
     def play(self):
         """
         Main function that calls apon other functions
-        in oreder to play the game
+        in oreder to play the game, prints out boards to the terminal,
+        takes players guess and makes computers guess, processes
+        guesses and checks for a winner
         """
 
         print("Let's play Battleship!")

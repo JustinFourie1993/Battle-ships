@@ -12,7 +12,8 @@ class BattleshipGame:
         self.computer_board = self.create_board()
         self.computer_ships = self.place_ships(self.computer_board)
         self.player_ships = self.place_ships(self.player_board)
-
+    
+    # create_board taken from CI's Project Portfolio 3 Scope video
     def create_board(self):
         """Creates a grid using a for loop"""
 
@@ -32,6 +33,7 @@ class BattleshipGame:
                     break
         return ships
 
+    # print_board written with help of coding friend Marcus Nilson
     def print_board(self, board):
         """
         Removes quotations with .join in a for loop
@@ -46,6 +48,7 @@ class BattleshipGame:
 
         while True:
             guess = input("Enter your guess (e.g., A1): ").upper()
+            # If statement written with help of coding friend Marcus Nilson
             if len(guess) != 2 or not ('A' <= guess[0] <= chr(ord('A')
                + self.board_size - 1)) or not ('1' <= guess[1] <=
                str(self.board_size)):

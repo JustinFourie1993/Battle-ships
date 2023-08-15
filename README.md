@@ -1,5 +1,6 @@
 # Battle-ships
 Battleships is a terminal game, wich runs in the Code Institute mock terminal on Heroku. In the game you take turns against the computer makng attempts to find, and sink the ships on the opponents board. [Try it out here!](https://battle-ships-by-justin-f9c8a95e0da7.herokuapp.com/)
+
 ![A mockup of deployed game](/assets/images/mockup.png)
 
 # How to play
